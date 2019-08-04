@@ -1,0 +1,65 @@
+
+
+@model Dish
+<h1>Add a New Dish!</h1>
+       
+<a class='btn btn-secondary' href="/dishes">HOME</a>
+<!-- <a class='btn btn-secondary' href="/newchef">ADD A NEW CHEF</a> -->
+
+
+<div class="container">
+    
+    <form class='big_form' asp-controller="Home" asp-action="ProcessDish" method="POST">
+
+        <div class="form-group">
+            <span asp-validation-for="DishName"></span>
+            <label asp-for="DishName"></label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" asp-for='DishName' value="">
+        </div>
+
+
+        <div class="form-group">
+            <span asp-validation-for="Calories"></span>
+            <label asp-for="Calories"></label>
+            <input type="number" class="form-control" id="exampleFormControlInput1" asp-for='Calories' value="">
+        </div>
+        <br>
+       
+
+        <div class="form-group">
+            <span asp-validation-for="Tastiness"></span>
+            <label asp-for="Tastiness">Tastiness</label>
+            <select asp-for="Tastiness">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+            </select>
+        </div>
+        <br>
+       
+
+        <div class="form-group">
+            <span asp-validation-for="CreatorId"></span>
+            <label asp-for="CreatorId">ChefName</label>
+            <select asp-for="CreatorId">
+                @foreach(var cook in @ViewBag.AllChefs){
+                    <option value="@cook.ChefId">@cook.FirstName @cook.LastName</option>
+                }
+
+            
+            </select>
+        </div>
+
+        <br>
+        <div class="form-group">
+            <span asp-validation-for="Description"></span>
+            <label asp-for="Description"></label>
+            <input type="text" class="form-control" id="exampleFormControlInput1" asp-for='Description' value="">
+        </div>
+
+        <button type="submit" value='submit' class="btn btn-primary">Add Dish</button>
+    </form>
+</div>
+

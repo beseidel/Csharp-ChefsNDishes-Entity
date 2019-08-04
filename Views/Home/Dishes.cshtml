@@ -1,0 +1,21 @@
+
+
+<span><h1><a href="/">Chefs </a>|
+<a href="/dishes">Dishes</a><h1></span>
+<br>
+<br>
+
+
+   
+
+<h3><a href="/newdish">Add a Dish</a></h3>
+
+<h1>Yum, take a Look at our Tasty Dishes!</h1>
+
+
+@model List<Dish>;
+
+    @foreach (var plate in Model){
+      <p>@plate.DishName @plate.Calories @plate.Tastiness  @plate.Description @plate.Creator.FirstName</p>
+    }
+
